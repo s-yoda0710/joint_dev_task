@@ -22,11 +22,7 @@ def q3
   numbers = [1, 5, 8, 10, 2, 3, 2, 3, 3, 1, 4, 5, 9]
 
   # 以下に回答を記載
-  count = 0
-  numbers.each do |number|
-    count += 1 if number == 3
-  end
-  puts "配列の中に、3は#{count}個あります"
+  p "配列の中に、3は#{numbers.count(3)}個あります。"
 end
 
 def q4
@@ -53,9 +49,13 @@ end
 
 def q6
   numbers1 = [1, 2, 3, 4, 5]
-
+  new_numbers = []
   # 以下に回答を記載
+  numbers1.each do |number|
+    new_numbers << number * 10
+  end
 
+  p new_numbers
 end
 
 def q7
