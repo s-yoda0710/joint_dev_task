@@ -49,20 +49,21 @@ end
 
 def q6
   numbers1 = [1, 2, 3, 4, 5]
-  new_numbers = []
   # 以下に回答を記載
-  numbers1.each do |number|
-    new_numbers << number * 10
-  end
-
-  p new_numbers
+  # new_numbers = []
+  # numbers1.each do |number|
+  #   new_numbers << number * 10
+  # end
+  # p new_numbers
+  numbers1 = numbers1.map { |n| n * 10 }
+  p numbers1
 end
 
 def q7
   array = ["1", "2", "3", "4", "5"]
 
   # 以下に回答を記載
-
+  array = array.map { |n| n.to_i }
   # 以下は変更しないで下さい
   p array
 end
@@ -71,7 +72,8 @@ def q8
   programming_languages = %w(ruby php python javascript)
 
   # 以下に回答を記載
-
+  programming_languages = programming_languages.map(&:capitalize)
+  upper_case_programming_languages = programming_languages.map(&:upcase)
   # 以下は変更しないで下さい
   p programming_languages
   p upper_case_programming_languages
@@ -81,43 +83,61 @@ def q9
   names = ["田中", "佐藤", "佐々木", "高橋"]
 
   # 以下に回答を記載
-
+  names.each.with_index(1) do |name, i|
+    puts "会員No.#{i} #{name}さん"
+  end
 end
 
 def q10
   foods = %w(いか たこ うに しゃけ うにぎり うに軍艦 うに丼)
 
   # 以下に回答を記載
-
+  foods.each do |food|
+    if food.include?("うに")
+      puts "#{food}：好物です。"
+    else
+      puts "#{food}：まあまあ好きです。"
+    end
+  end
 end
 
 def q11
   sports = ["サッカー", "バスケ", "野球", ["フットサル", "野球"], "水泳", "ハンドボール", ["卓球", "サッカー", "ボルダリング"]]
-
   # 以下に回答を記載
-
+  uniq_sports = sports.flatten.uniq
+  uniq_sports.each.with_index(1) do |uniq_sport, i|
+    puts "No#{i} #{uniq_sport}"
+  end
 end
 
 def q12
   data = { user: { name: "satou", age: 33 } }
 
   # 以下に回答を記載
-
+  p data[:user][:name]
 end
 
 def q13
   user_data = { name: "神里", age: 31, address: "埼玉" }
   update_data = { age: 32, address: "沖縄" }
 
-  # 以下に回答を記載
-
+  # # 以下に回答を記載
+  # user_data[:age] = update_data[:age]
+  # user_data[:address] = update_data[:address]
+  user_data.update(update_data)
+  p user_data
 end
 
 def q14
   data = { name: "satou", age: 33, address: "saitama", hobby: "soccer", email: "hoge@fuga.com" }
 
   # 以下に回答を記載
+  key_data = data.keys
+  # data.each do |key, value|
+  #   key_data << key
+  # end
 
+  p key_data
 end
 
 def q15
