@@ -129,7 +129,7 @@ def q13
   update_data = { age: 32, address: "沖縄" }
 
   # # 以下に回答を記載
-  # user_data[:age] = update_data[:age]
+  # user_data.age = update_data.age
   # user_data[:address] = update_data[:address]
   user_data.update(update_data)
   p user_data
@@ -166,7 +166,7 @@ def q16
 
   # 以下に回答を記載
   users.each do |user|
-    puts "私の名前は#{user[:name]}です。年齢は#{user[:age]}歳です。"
+    puts "私の名前は#{user[:name]}です。年齢は#{user.age}歳です。"
   end
 end
 
@@ -203,7 +203,11 @@ class UserQ18
     @age = age
   end
   def introduce
-    @age >= 20 ? "こんにちは、#{@name}と申します。宜しくお願いします。" : "はいさいまいど〜、#{@name}です！"
+    if @age >= 20
+      "こんにちは、#{@name}と申します。宜しくお願いいたします。"
+    else
+      "はいさいまいど〜、#{@name}です！"
+    end
   end
 end
 
@@ -221,9 +225,6 @@ class Item
   attr_reader :name
   def initialize(name:)
     @name = name
-  end
-  def name
-    puts @name
   end
 end
 
@@ -253,8 +254,7 @@ def q20
     UserQ20.new(name: "あじー", age: 32),
     UserQ20.new(name: "ぎん", age: 108),
   ]
-
   users.each do |user|
-    zoo.info_entry_fee(user)
+    # zoo.info_entry_fee(user)
   end
 end
